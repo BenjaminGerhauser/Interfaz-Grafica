@@ -28,7 +28,8 @@ public class Ejercicio3 extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         lstLenguajes = new javax.swing.JList<>();
-        lblTexto = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAreaTexto = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,37 +39,132 @@ public class Ejercicio3 extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         lstLenguajes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lstLenguajes.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstLenguajesValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstLenguajes);
         lstLenguajes.getAccessibleContext().setAccessibleName("lstLenguajes");
 
-        lblTexto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTexto.setText("jLabel1");
+        txtAreaTexto.setColumns(20);
+        txtAreaTexto.setRows(5);
+        txtAreaTexto.setText("...");
+        jScrollPane2.setViewportView(txtAreaTexto);
+        txtAreaTexto.getAccessibleContext().setAccessibleName("txtAreaTexto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(142, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(lblTexto)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        lblTexto.getAccessibleContext().setAccessibleName("lblTexto");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lstLenguajesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstLenguajesValueChanged
+        if (!evt.getValueIsAdjusting()) {
+            String seleccionado = lstLenguajes.getSelectedValue();
+            switch (seleccionado) {
+                case "Python":
+                    txtAreaTexto.setText("""
+                                    🐍 Python
+
+                                    Tipo: Interpretado, de alto nivel.
+
+                                    Usos comunes: Ciencia de datos, inteligencia artificial, automatización, desarrollo web (Django, Flask).
+
+                                    Ventajas: Sintaxis muy simple, gran comunidad, muchas librerías.
+
+                                    Desventajas: Más lento que los compilados, no ideal para apps móviles o de bajo nivel.
+                                    """);
+                    break;
+                case "C++":
+                    txtAreaTexto.setText("""
+                                    💻 C++
+
+                                    Tipo: Compilado, orientado a objetos y de propósito general.
+
+                                    Usos comunes: Desarrollo de videojuegos, sistemas embebidos, software de alto rendimiento.
+
+                                    Ventajas: Muy rápido, acceso directo a memoria, gran control sobre recursos.
+
+                                    Desventajas: Sintaxis compleja, manejo manual de memoria.
+                                    """);
+                    break;
+                case "C#":
+                    txtAreaTexto.setText("""
+                                    🧩 C# (C Sharp)
+
+                                    Tipo: Compilado, orientado a objetos, desarrollado por Microsoft.
+
+                                    Usos comunes: Aplicaciones de escritorio (Windows), videojuegos (Unity), desarrollo web (ASP.NET).
+
+                                    Ventajas: Integración con el ecosistema .NET, productivo y moderno.
+
+                                    Desventajas: Menos usado fuera del entorno Microsoft, menos multiplataforma que otros (aunque .NET Core mejoró eso).
+                                    """);
+                    break;
+                case "C":
+                    txtAreaTexto.setText("""
+                                    ⚙️ C
+
+                                    Tipo: Compilado, estructurado y de bajo nivel.
+
+                                    Usos comunes: Sistemas operativos, drivers, software embebido.
+
+                                    Ventajas: Muy rápido, control total del hardware, base de muchos otros lenguajes.
+
+                                    Desventajas: No orientado a objetos, requiere manejo manual de memoria, propenso a errores de punteros.
+                                    """);
+                    break;
+                case "Java":
+                    txtAreaTexto.setText("""
+                                    ☕ Java
+
+                                    Tipo: Compilado a bytecode e interpretado por la JVM.
+
+                                    Usos comunes: Aplicaciones empresariales, Android, backends web.
+
+                                    Ventajas: Multiplataforma (“write once, run anywhere”), fuerte tipado, gran comunidad.
+
+                                    Desventajas: Verboso, más consumo de memoria comparado con otros.
+                                    """);
+                    break;
+                case "JavaScript":
+                    txtAreaTexto.setText("""
+                                    🌐 JavaScript
+
+                                    Tipo: Interpretado, dinámico, multiparadigma.
+
+                                    Usos comunes: Desarrollo web (frontend y backend con Node.js).
+
+                                    Ventajas: Lenguaje nativo del navegador, enorme ecosistema (React, Angular, Vue).
+
+                                    Desventajas: Inconsistencias del lenguaje, dependiente del entorno (navegador o Node).
+                                    """);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+
+        }
+    }//GEN-LAST:event_lstLenguajesValueChanged
 
     /**
      * @param args the command line arguments
@@ -107,7 +203,8 @@ public class Ejercicio3 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblTexto;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> lstLenguajes;
+    private javax.swing.JTextArea txtAreaTexto;
     // End of variables declaration//GEN-END:variables
 }

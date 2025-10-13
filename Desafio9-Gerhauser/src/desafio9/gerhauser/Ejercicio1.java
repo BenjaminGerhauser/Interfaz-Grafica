@@ -74,8 +74,6 @@ public class Ejercicio1 extends javax.swing.JFrame {
     txtResultado.setEditable(false);
 
     
-
-    // Botón "=" hace la operación
     btnIgual.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             aplicarOperacion(operacion);

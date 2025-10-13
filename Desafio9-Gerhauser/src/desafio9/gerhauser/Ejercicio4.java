@@ -4,6 +4,8 @@
  */
 package desafio9.gerhauser;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alumno
@@ -28,12 +30,24 @@ public class Ejercicio4 extends javax.swing.JFrame {
 
         txtUsuario = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
+        btnEnviar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtUsuario.setText("jTextField1");
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
 
         lblTitulo.setText("Ingrese su edad");
+
+        btnEnviar.setText("Enviar");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -43,24 +57,54 @@ public class Ejercicio4 extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitulo)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(164, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEnviar)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(8, 8, 8)
                 .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEnviar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         txtUsuario.getAccessibleContext().setAccessibleName("txtUsuario");
         lblTitulo.getAccessibleContext().setAccessibleName("lblTitulo");
+        btnEnviar.getAccessibleContext().setAccessibleName("btnEnviar");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        try {
+            int edad = Integer.parseInt(txtUsuario.getText());
+            if (edad >= 18) {
+                JOptionPane.showMessageDialog(null, "Felicitaciones sos mayor.", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                txtUsuario.setText("");
+            } else if (edad < 18 && edad >= 0){
+                JOptionPane.showMessageDialog(null, "Sos menor.", "Quieto", JOptionPane.WARNING_MESSAGE);
+                txtUsuario.setText("");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingrese solo numeros mayores a 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtUsuario.setText("");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingrese solo numeros mayores a 0", "Error", JOptionPane.ERROR_MESSAGE);
+            txtUsuario.setText("");
+        }
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,6 +142,7 @@ public class Ejercicio4 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEnviar;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
