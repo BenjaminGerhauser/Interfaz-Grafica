@@ -4,25 +4,30 @@
  */
 package vista;
 
+import java.awt.Label;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
  *
  * @author Alumno
  */
-public class frmMain extends javax.swing.JFrame {
+public class frmConversor extends javax.swing.JFrame {
 
     /**
      * Creates new form frmMain
      */
-    public frmMain() {
+    public frmConversor() {
         initComponents();
     }
     
     public JComboBox getCbo(){return cboTemps;}
     public JTextField getTxtTempCalulada(){return txtConvTemp;}
     public JTextField getTxtTempIngresada(){return txtInputTemp;}
+    public JLabel getlblTemp1(){return lblTemp1;}
+    public JLabel getlblTemp2(){return lblTemp2;}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,12 +42,18 @@ public class frmMain extends javax.swing.JFrame {
         txtConvTemp = new javax.swing.JTextField();
         cboTemps = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        lblTemp1 = new javax.swing.JLabel();
+        lblTemp2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cboTemps.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celcius a Farenheit", "Farenheit a Celcius" }));
 
         jLabel1.setText("Ingrese una temperatura");
+
+        lblTemp1.setText("Temp1");
+
+        lblTemp2.setText("Temp2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,19 +71,28 @@ public class frmMain extends javax.swing.JFrame {
                         .addComponent(txtConvTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addComponent(cboTemps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))))
+                        .addGap(16, 16, 16))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTemp1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTemp2)
+                        .addGap(245, 245, 245))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTemp1)
+                    .addComponent(lblTemp2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtInputTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtConvTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboTemps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         txtInputTemp.getAccessibleContext().setAccessibleName("txtInputTemp");
@@ -99,20 +119,21 @@ public class frmMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConversor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConversor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConversor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConversor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmMain().setVisible(true);
+                new frmConversor().setVisible(true);
             }
         });
     }
@@ -120,6 +141,8 @@ public class frmMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cboTemps;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblTemp1;
+    private javax.swing.JLabel lblTemp2;
     private javax.swing.JTextField txtConvTemp;
     private javax.swing.JTextField txtInputTemp;
     // End of variables declaration//GEN-END:variables

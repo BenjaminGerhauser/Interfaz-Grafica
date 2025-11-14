@@ -5,8 +5,8 @@
 package controlador;
 
 import java.awt.event.ActionListener;
-import vista.frmMain;
-import modelo.modelo;
+import vista.frmConversor;
+import modelo.modeloConversor;
 import java.awt.event.*;
 
 
@@ -14,11 +14,11 @@ import java.awt.event.*;
  *
  * @author Alumno
  */
-public class controlador implements ActionListener{
-    private frmMain vista;
+public class controladorConversor implements ActionListener{
+    private frmConversor vista;
     private double tempCalculo;
     
-    public controlador(frmMain vista){
+    public controladorConversor(frmConversor vista){
         this.vista = vista;
         this.vista.getCbo().addActionListener(this);
     }
@@ -27,12 +27,16 @@ public class controlador implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String convertir = (String) vista.getCbo().getSelectedItem();
         double tempIngresada = Double.parseDouble(vista.getTxtTempIngresada().getText());
-        modelo m = new modelo(tempIngresada);
+        modeloConversor m = new modeloConversor(tempIngresada);
         if (convertir.equals("Celcius a Farenheit")) {
             this.tempCalculo = m.toFarenheit(tempIngresada);
+            vista.getlblTemp1().setText("Celcius");
+            vista.getlblTemp2().setText("Farenheit");
         }
         else if (convertir.equals("Farenheit a Celcius")){
             this.tempCalculo = m.toCelcius(tempIngresada);
+            vista.getlblTemp1().setText("Farenheit");
+            vista.getlblTemp2().setText("Celcius");
         }
         vista.getTxtTempCalulada().setText(String.valueOf(this.tempCalculo));
     }

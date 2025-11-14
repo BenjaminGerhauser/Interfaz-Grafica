@@ -8,10 +8,10 @@ package modelo;
  *
  * @author Alumno
  */
-public class modelo {
+public class modeloConversor {
     private double tempIngresada;
     
-    public modelo(double tempÌngresada){
+    public modeloConversor(double tempÌngresada){
         this.tempIngresada = tempÌngresada;
     }
     

@@ -38,6 +38,12 @@
                       <Component id="cboTemps" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblTemp1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblTemp2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="245" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -47,13 +53,18 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblTemp1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTemp2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtInputTemp" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtConvTemp" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cboTemps" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="43" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,6 +99,16 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ingrese una temperatura"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTemp1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Temp1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTemp2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Temp2"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -4,8 +4,9 @@
  */
 package desafio11.gerhauser;
 
-import vista.frmMain;
-import controlador.controlador;
+import vista.frmConversor;
+import controlador.controladorConversor;
+import vista.main;
 
 /**
  *
@@ -17,11 +18,8 @@ public class Desafio11Gerhauser {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        frmMain vista = new frmMain();
-        new controlador(vista);
-        vista.setVisible(true);
-    
-    
+        main main = new main();
+        main.setVisible(true);   
     }
     
 }
