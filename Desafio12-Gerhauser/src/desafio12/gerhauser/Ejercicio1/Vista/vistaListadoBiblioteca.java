@@ -56,7 +56,6 @@ public class vistaListadoBiblioteca extends javax.swing.JFrame {
     protected void listarLibros() {
         DefaultTableModel model = (DefaultTableModel) tableListado.getModel();
         model.setRowCount(0);
-        listaLibros = DAO.listarLibros();
         for (modeloLibro libro : listaLibros) {
             model.addRow(new Object[]{
                 String.valueOf(libro.getId()),

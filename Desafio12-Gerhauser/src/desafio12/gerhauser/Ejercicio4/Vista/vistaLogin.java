@@ -136,7 +136,7 @@ public class vistaLogin extends javax.swing.JFrame {
 
     private void btnCambiarPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarPassActionPerformed
         vistaCambiarContraseña vista;
-        if (txtUsuario.getText() != "") {
+        if (!txtUsuario.getText().equals("") && !txtPass.getText().equals("")) {
             int id = controlador.buscarUser(txtUsuario.getText());
             vista = new vistaCambiarContraseña(id);
             vista.setVisible(true);

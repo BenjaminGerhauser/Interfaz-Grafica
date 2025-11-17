@@ -79,9 +79,11 @@ public class vistaCambiarContraseña extends javax.swing.JFrame {
     controladorValidacion controlador = new controladorValidacion();
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
         String newPass = txtNewPass.getText();
-        if(controlador.cambiarPassword(idUser, newPass)) JOptionPane.showMessageDialog(null, "Contraseña cambiada con exito");
-        else JOptionPane.showMessageDialog(null,"Hubo un error");
-        this.dispose();
+        if(!newPass.equals("")){
+            if(controlador.cambiarPassword(idUser, newPass)) JOptionPane.showMessageDialog(null, "Contraseña cambiada con exito");
+            else JOptionPane.showMessageDialog(null,"Hubo un error");
+            this.dispose();
+        }else JOptionPane.showMessageDialog(null,"La contraseña no puede estar vacia");
     }//GEN-LAST:event_btnCambiarActionPerformed
 
     /**

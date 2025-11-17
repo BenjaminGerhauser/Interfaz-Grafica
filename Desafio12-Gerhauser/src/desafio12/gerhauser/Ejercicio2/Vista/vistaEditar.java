@@ -39,6 +39,7 @@ public class vistaEditar extends javax.swing.JFrame {
         txtNombre.setText(nombreCategoria);
         listaCategorias = controladoCategoria.listar();
         cboOpcion.setSelectedIndex(1);
+        cboOpcion.setEnabled(false);
         
         cargarComboCategoria();
     }
@@ -66,6 +67,7 @@ public class vistaEditar extends javax.swing.JFrame {
         }
         listaCategorias = controladoCategoria.listar();
         cargarComboCategoria();
+        cboOpcion.setEnabled(false);
     }
     private void cargarComboCategoria(){
         cboCategorias.removeAllItems();
